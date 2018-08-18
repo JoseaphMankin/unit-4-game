@@ -1,0 +1,105 @@
+/* GLOBAL SWITCH TO BOARDER-BOX, TEXT-ALIGN CENTER AND THE CLEARFIX */
+
+* {
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .cf{
+    clear: both;
+    overflow: auto;
+  }
+
+.container .row{
+      width: 100%;
+      padding: 0px;
+      margin: 0px;
+  }
+
+
+.SWOptions {
+border: 2px solid green;
+background-color: green;
+height: auto;
+float: left;
+align-content: justify;
+
+}
+
+
+
+.SWBattleground {
+    border: 2px solid black;
+    background-color: black;
+}
+
+.SWDefeated {
+    border: 2px solid red;
+    background-color: red;
+}
+
+header{
+    text-align: center;
+}
+
+body{
+    background-color: teal
+}
+
+.card{
+    width: 150px;
+    height: 300px;
+    float: left;
+    align-content: center;
+    margin: 5px;
+  }
+
+.card-title{
+    padding: 0px;
+    text-align: center;
+    width: 100%;
+}
+
+.LukeBanner{
+        background-color: red;
+        color: black;
+}
+
+.ObiBanner{
+    background-color: orange;
+    color: black;
+}
+
+.VaderBanner{
+    background-color: yellow;
+    color: black;
+}
+
+.StormBanner{
+    background-color: red;
+    color: white;
+}
+
+.card-body{
+    padding: 5px;
+    height: 50px;
+
+}
+
+.card-img-overlay{
+    position: absolute;
+    padding: 0px;
+    top: 25%;
+}
+
+img{
+    height: 220px;
+    width: 30;
+}
+
+.card-img-top{
+    padding: 3px;
+}
+
+
+
