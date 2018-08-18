@@ -10,32 +10,41 @@
     overflow: auto;
   }
 
+h1, h2{
+      color: white;
+  }
+
 .container .row{
       width: 100%;
       padding: 0px;
       margin: 0px;
+      height: 700px;
   }
 
 
 .SWOptions {
-border: 2px solid green;
+border: 2px solid black;
 background-color: green;
 height: auto;
 float: left;
-align-content: justify;
+align-content: center;
 
 }
 
-
-
 .SWBattleground {
-    border: 2px solid black;
-    background-color: black;
+border: 2px solid black;
+background-color: gray;
+height: auto;
+float: left;
+align-content: center;
 }
 
 .SWDefeated {
-    border: 2px solid red;
-    background-color: red;
+    border: 2px solid black;
+background-color: red;
+height: auto;
+float: left;
+align-content: center;
 }
 
 header{
@@ -43,7 +52,7 @@ header{
 }
 
 body{
-    background-color: teal
+    background-color: black;
 }
 
 .card{
@@ -83,7 +92,6 @@ body{
 .card-body{
     padding: 5px;
     height: 50px;
-
 }
 
 .card-img-overlay{
