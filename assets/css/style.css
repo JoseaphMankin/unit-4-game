@@ -12,19 +12,35 @@
 
 h1, h2{
       color: white;
+      width: 100%;
+      border-bottom: 3px solid black;
+      margin: 0px;
+      padding: 0px;
   }
 
-.container .row{
-      width: 100%;
-      padding: 0px;
-      margin: 0px;
-      height: 700px;
+
+.row{
+    height: 800px;
+}
+
+.col-4{
+    align-content: center;
+}
+
+.attackBtn{
+      position: relative;
+      top: 50%;
+ 
+  }
+
+.playerZone, defenderZone{
+      height: 310px;
   }
 
 
 .SWOptions {
 border: 2px solid black;
-background-color: green;
+background-color: black;
 height: auto;
 float: left;
 align-content: center;
@@ -53,15 +69,37 @@ header{
 
 body{
     background-color: black;
+    margin: 0px;
 }
 
 .card{
     width: 150px;
     height: 300px;
-    float: left;
-    align-content: center;
-    margin: 5px;
-  }
+    margin: 10px;
+    margin-left: 25px;
+    float: left; /* flip to none on Battlefield */
+    margin-bottom: 10px; 
+}
+
+.LukeCard2, 
+.ObiCard2, 
+.StormCard2, 
+.VaderCard2 {
+    width: 150px;
+    height: 300px;
+    margin: 10px;
+    margin-left: 25px;
+    float: left; /* flip to none on Battlefield */
+    margin-bottom: 10px;
+}
+
+playerZone{
+    float: none;
+}
+
+.card:hover{
+    background-color: green;
+}
 
 .card-title{
     padding: 0px;
@@ -69,24 +107,32 @@ body{
     width: 100%;
 }
 
+.card-body{
+    background-color: green;
+}
+
+.card-img-top{
+    border: 5px solid green;
+}
+
 .LukeBanner{
-        background-color: red;
+        background-color: yellow;
         color: black;
 }
 
 .ObiBanner{
-    background-color: orange;
-    color: black;
+    background-color: brown;
+    color: white;
 }
 
 .VaderBanner{
-    background-color: yellow;
-    color: black;
+    background-color: black;
+    color: red;
 }
 
 .StormBanner{
-    background-color: red;
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 .card-body{

@@ -19,8 +19,9 @@
         <h1>VINTAGE Star Wars RPG</h1>
     </header>
 
-    <div class="container">
-        <div class="row">
+    <div class="container-fluid">
+        
+        <div class="row justify-content-center">
             <div class="col-4 SWOptions">
                 <h2>CHARACTER SELECT</h2>
                 <div class="card img-fluid LukeCard">
@@ -64,9 +65,13 @@
 
 
 
-            <div class="col-4 SWBattleground">
-                    <h2>BATTLEFIELD</h2>
-                    <div class="card img-fluid LukeCard2">
+            <div class="col-4 justify-content-center SWBattleground">
+                <h2>BATTLEFIELD</h2>
+
+                
+                    <div class="col-12 playerZone">
+
+                        <div class="card img-fluid LukeCard2">
                             <img class="card-img-top" src="assets/images/Lukeloose.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title LukeBanner">Luke</h5>
@@ -74,7 +79,7 @@
                                 <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                             </div>
                         </div>
-        
+
                         <div class="card img-fluid ObiCard2">
                             <img class="card-img-top" src="assets/images/Obiloose.jpg" alt="Card image cap">
                             <div class="card-body">
@@ -83,64 +88,109 @@
                                 <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                             </div>
                         </div>
-        
-        
+
                         <div class="card img-fluid StormCard2">
-                            <img class="card-img-top" src="assets/images/Stormloose.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title StormBanner">Stormtrooper</h5>
-                                <p class="card-text">150 HP</p>
-                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                <img class="card-img-top" src="assets/images/Stormloose.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title StormBanner">Stormtrooper</h5>
+                                    <p class="card-text">150 HP</p>
+                                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                </div>
                             </div>
-                        </div>
+    
+                            <div class="card img-fluid VaderCard2">
+                                <img class="card-img-top" src="assets/images/Vaderloose.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title VaderBanner">Darth Vader</h5>
+                                    <p class="card-text">180 HP</p>
+                                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                </div>
+                            </div>
+                        
+                    </div>
+
+                    <div class="col-12">
+                            <button type="button" class="btn btn-danger btn-lg btn-block attackBtn">Press To Attack!!</button>
+                    </div>
+                    
+                    <div class="col-12 defenderZone">
+                            <div class="card img-fluid LukeCardOpp">
+                                    <img class="card-img-top" src="assets/images/Lukeloose.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title LukeBanner">Luke</h5>
+                                        <p class="card-text">100 HP</p>
+                                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    </div>
+                                </div>
         
-                        <div class="card img-fluid VaderCard2">
-                            <img class="card-img-top" src="assets/images/Vaderloose.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title VaderBanner">Darth Vader</h5>
-                                <p class="card-text">180 HP</p>
-                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                            </div>
-                        </div>
+                                <div class="card img-fluid ObiCardOpp">
+                                    <img class="card-img-top" src="assets/images/Obiloose.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title ObiBanner">Obi-Wan</h5>
+                                        <p class="card-text">120 HP</p>
+                                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    </div>
+                                </div>
+        
+                                <div class="card img-fluid StormCardOpp">
+                                        <img class="card-img-top" src="assets/images/Stormloose.jpg" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title StormBanner">Stormtrooper</h5>
+                                            <p class="card-text">150 HP</p>
+                                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                        </div>
+                                    </div>
+            
+                                    <div class="card img-fluid VaderCardOpp">
+                                        <img class="card-img-top" src="assets/images/Vaderloose.jpg" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title VaderBanner">Darth Vader</h5>
+                                            <p class="card-text">180 HP</p>
+                                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                        </div>
+                                    </div>
+                        
+                    </div>
+               
             </div>
             <div class="col-4 SWDefeated">
-                    <h2>DEFEATED</h2>
+                <h2>DEFEATED</h2>
                 <div class="card img-fluid LukeCard3">
-                            <img class="card-img-top" src="assets/images/cardback1.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title LukeBanner">Luke</h5>
-                                <p class="card-text">DEFEATED</p>
-                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                            </div>
-                        </div>
-        
-                        <div class="card img-fluid ObiCard3">
-                            <img class="card-img-top" src="assets/images/cardback2.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title ObiBanner">Obi-Wan</h5>
-                                <p class="card-text">DEFEATED</p>
-                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                            </div>
-                        </div>
-        
-        
-                        <div class="card img-fluid StormCard3">
-                            <img class="card-img-top" src="assets/images/cardback3.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title StormBanner">Stormtrooper</h5>
-                                <p class="card-text">DEFEATED</p>
-                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                            </div>
-                        </div>
-        
-                        <div class="card img-fluid VaderCard3">
-                            <img class="card-img-top" src="assets/images/cardback4.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title VaderBanner">Darth Vader</h5>
-                                <p class="card-text">DEFEATED</p>
-                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                            </div>
-                        </div>
+                    <img class="card-img-top" src="assets/images/cardback1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title LukeBanner">Luke</h5>
+                        <p class="card-text">DEFEATED</p>
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                </div>
+
+                <div class="card img-fluid ObiCard3">
+                    <img class="card-img-top" src="assets/images/cardback2.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title ObiBanner">Obi-Wan</h5>
+                        <p class="card-text">DEFEATED</p>
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                </div>
+
+
+                <div class="card img-fluid StormCard3">
+                    <img class="card-img-top" src="assets/images/cardback3.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title StormBanner">Stormtrooper</h5>
+                        <p class="card-text">DEFEATED</p>
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                </div>
+
+                <div class="card img-fluid VaderCard3">
+                    <img class="card-img-top" src="assets/images/cardback4.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title VaderBanner">Darth Vader</h5>
+                        <p class="card-text">DEFEATED</p>
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
