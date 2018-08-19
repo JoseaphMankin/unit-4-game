@@ -63,11 +63,11 @@ $(document).ready(function () {
     $(".vaderCardOpp").hide();
 
     $(".attackBtn").hide();
+    $(".restartBtn").hide();
 
 
     //Initial Setup w/ Characters to be picked on Left. 
     //Instructions to choose fighter, opponent and then FIGHT!
-
     readyPlayerOne();
 
     function readyPlayerOne() {
@@ -82,7 +82,7 @@ $(document).ready(function () {
                 $(".player-body").css("background-color", "green");
                 instructions_h2.innerHTML = "CHOOSE YOUR OPPONENT";
                 pickEnemy();
-            } 
+            }
         });
 
         $(".obiCard").on('click', function () {
@@ -94,7 +94,7 @@ $(document).ready(function () {
                 $(".player-body").css("background-color", "green");
                 instructions_h2.innerHTML = "CHOOSE YOUR OPPONENT";
                 pickEnemy();
-            } 
+            }
         });
 
         $(".stormCard").on('click', function () {
@@ -106,7 +106,7 @@ $(document).ready(function () {
                 $(".player-body").css("background-color", "green");
                 instructions_h2.innerHTML = "CHOOSE YOUR OPPONENT";
                 pickEnemy();
-            } 
+            }
         });
 
         $(".vaderCard").on('click', function () {
@@ -238,8 +238,72 @@ $(document).ready(function () {
     }
 
     function reset() {
-        console.log("Play Again?")
+
+        $(".restartBtn").toggle();
+        instructions_h2.innerHTML = "CHOOSE YOUR FIGHTER";
+        $(".card-body").css("background-color", "green");
+
+        player = null;
+        opponent = null;
+         luke = {
+            name: "luke",
+            hp: 100,
+            attack: 14,
+            baseAtk: 14,
+            counterAtk: 20,
+            alive: true,
+        };
+         obi = {
+            name: "obi",
+            hp: 120,
+            attack: 8,
+            baseAtk: 8,
+            counterAtk: 15,
+            alive: true,
+        };
+         storm = {
+            name: "storm",
+            hp: 150,
+            attack: 7,
+            baseAtk: 7,
+            counterAtk: 5,
+            alive: true,
+        };
+         vader = {
+            name: "vader",
+            hp: 170,
+            attack: 8,
+            baseAtk: 8,
+            counterAtk: 10,
+            alive: true,
+        };
+
+        wins = 0;
+       
+        $(".lukeCard").show();
+        $(".obiCard").show();
+        $(".stormCard").show();
+        $(".vaderCard").show();
+
+        $(".lukeCard2").hide();
+        $(".obiCard2").hide();
+        $(".stormCard2").hide();
+        $(".vaderCard2").hide();
+
+        $(".lukeCard3").hide();
+        $(".obiCard3").hide();
+        $(".stormCard3").hide();
+        $(".vaderCard3").hide();
+
+        $(".lukeCardOpp").hide();
+        $(".obiCardOpp").hide();
+        $(".stormCardOpp").hide();
+        $(".vaderCardOpp").hide();
+
+        $(".attackBtn").hide();
+
     }
+
 
     function smack() {
         console.log(opponent.hp);
@@ -255,7 +319,11 @@ $(document).ready(function () {
         if (wins === 3) {
             isGameOver = true;
             instructions_h2.innerHTML = "YOU WON. PLAY AGAIN?!";
-            reset();
+            $(".restartBtn").toggle();
+            $(".restartBtn").on('click', function () {
+                reset();
+            });
+
         }
     }
 

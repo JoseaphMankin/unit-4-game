@@ -114,10 +114,6 @@ playerZone{
     height: 50px;
 }
 
-/* .card-img-top{
-    border: 5px solid green;
-} */
-
 .player-body{
     background-color: green;
 }
@@ -155,6 +151,24 @@ img{
 
 .card-img-top{
     padding: 3px;
+}
+
+.restartBtn{
+    position: absolute;
+    top: 0;
+    left: -200px;
+    background-image: URL("../images/crossedsabers.jpg");
+    background-size: 800px 600px;
+    width: 800px;
+    height: 600px;
+    z-index: 1000;
+    border: 10px solid green;
+    font-size: 50pt;
+    color: red;
+}
+
+.restartBtn:hover{
+    color: blue;
 }
 
 
