@@ -31,76 +31,118 @@ $(document).ready(function () {
     let isGameOver = false;
     let kills = 0;
 
-    let player = "";
-    let opponent = "";
+    let player = null;
+    let opponent = null;
 
     console.log(luke, storm, obi, vader, isGameOver, kills);
 
     //Initial Setup w/ Characters to be picked on Left. Instructions to choose fighter
 
+    readyPlayerOne();
 
-    if (player === "") {
-        readyPlayerOne();
-        console.log(player);
-    } else {
-        opponentPick();
-        console.log(opponent);
-    }
-
-    //Function for initial Player pick
     function readyPlayerOne() {
 
-        $(".LukeCard").on('click', function () {
-            $(".LukeCard").slideUp();
-            $(".LukeCard2").slideDown();
-            player = luke;
+        $(".lukeCard").on('click', function () {
+
+            if (player === null) {
+                $(".lukeCard").slideUp();
+                $(".lukeCard2").slideDown();
+                player = luke;
+            } else {
+                $(".lukeCard").slideUp();
+                $(".lukeCardOpp").slideDown();
+                opponent = luke;
+            }
+
         });
 
-        $(".ObiCard").on('click', function () {
-            $(".ObiCard").slideUp();
-            $(".ObiCard2").slideDown();
-            player = obi;
+        $(".obiCard").on('click', function () {
+            if (player === null) {
+                $(".obiCard").slideUp();
+                $(".obiCard2").slideDown();
+                player = obi;
+            } else {
+                $(".obiCard").slideUp();
+                $(".obiCardOpp").slideDown();
+                opponent = obi;
+            }
         });
 
-        $(".StormCard").on('click', function () {
-            $(".StormCard").slideUp();
-            $(".StormCard2").slideDown();
-            player = storm;
+        $(".stormCard").on('click', function () {
+            if (player === null) {
+                $(".stormCard").slideUp();
+                $(".stormCard2").slideDown();
+                player = storm;
+            } else {
+                $(".stormCard").slideUp();
+                $(".stormCardOpp").slideDown();
+                opponent = storm;
+            }
         });
 
-        $(".VaderCard").on('click', function () {
-            $(".VaderCard").slideUp();
-            $(".VaderCard2").slideDown();
-            player = vader;
+        $(".vaderCard").on('click', function () {
+            if (player === null) {
+                $(".vaderCard").slideUp();
+                $(".vaderCard2").slideDown();
+                player = vader;
+            } else {
+                $(".vaderCard").slideUp();
+                $(".vaderCardOpp").slideDown();
+                opponent = vader;
+            }
         });
-
     }
 
+    //     
+    //     } else {
+    //         $(".lukeCard").on('click', function () {
+    //             $(".lukeCard").slideUp();
+    //             $(".lukeCardOpp").slideDown();
+    //         });
+
+    //         $(".obiCard").on('click', function () {
+    //             $(".obiCard").slideUp();
+    //             $(".obiCardOpp").slideDown();
+    //         });
+
+    //         $(".stormCard").on('click', function () {
+    //             $(".stormCard").slideUp();
+    //             $(".stormCardOpp").slideDown();
+    //         });
+
+    //         $(".vaderCard").on('click', function () {
+    //             $(".vaderCard").slideUp();
+    //             $(".vaderCardOpp").slideDown();
+    //         });
+    //     }
+    // }
+
+    // readyPlayerOne();
 
     //Player picks their fighter& Image loads to Battlefield Player Zone. 
     //Instructions to choose Opponent
 
-    function opponentPick() {
-        $(".LukeCard").on('click', function () {
-            $(".LukeCard").slideUp();
-            $(".LukeCardOpp").slideDown();
-        });
+    // function opponentPick() {
+    //     $(".lukeCard").on('click', function () {
+    //         $(".lukeCard").slideUp();
+    //         $(".lukeCardOpp").slideDown();
+    //     });
 
-        $(".ObiCard").on('click', function () {
-            $(".ObiCard").slideUp();
-            $(".ObiCardOpp").slideDown();
-        });
+    //     $(".obiCard").on('click', function () {
+    //         $(".obiCard").slideUp();
+    //         $(".obiCardOpp").slideDown();
+    //     });
 
-        $(".StormCard").on('click', function () {
-            $(".StormCard").slideUp();
-            $(".StormCardOpp").slideDown();
-        });
+    //     $(".stormCard").on('click', function () {
+    //         $(".stormCard").slideUp();
+    //         $(".stormCardOpp").slideDown();
+    //     });
 
-        $(".VaderCard").on('click', function () {
-            $(".VaderCard").slideUp();
-            $(".VaderCardOpp").slideDown();
-        });
-    }
+    //     $(".vaderCard").on('click', function () {
+    //         $(".vaderCard").slideUp();
+    //         $(".vaderCardOpp").slideDown();
+    //     });
+    // }
 
 
     // Player Chooses opponent and it loads in Battlefield Defender zone. 
@@ -118,60 +160,60 @@ $(document).ready(function () {
 
     //FUN THINGS TO DO .show, .hide, .slideUp, .slideDown, .toggle so .slideToggle .fadeToggle mouseover
     //$('#btn1').html('my button'); for rewriting
-    $(".LukeCard2").hide();
-$(".ObiCard2").hide();
-$(".StormCard2").hide();
-$(".VaderCard2").hide();
+    $(".lukeCard2").hide();
+    $(".obiCard2").hide();
+    $(".stormCard2").hide();
+    $(".vaderCard2").hide();
 
-$(".LukeCard3").hide();
-$(".ObiCard3").hide();
-$(".StormCard3").hide();
-$(".VaderCard3").hide();
+    $(".lukeCard3").hide();
+    $(".obiCard3").hide();
+    $(".stormCard3").hide();
+    $(".vaderCard3").hide();
 
-$(".LukeCardOpp").hide();
-$(".ObiCardOpp").hide();
-$(".StormCardOpp").hide();
-$(".VaderCardOpp").hide();
+    $(".lukeCardOpp").hide();
+    $(".obiCardOpp").hide();
+    $(".stormCardOpp").hide();
+    $(".vaderCardOpp").hide();
 
-    // $(".LukeCard").on('click', function(){
-    //     $(".LukeCard").slideUp();
-    //     $(".LukeCard2").slideDown();
+    // $(".lukeCard").on('click', function(){
+    //     $(".lukeCard").slideUp();
+    //     $(".lukeCard2").slideDown();
     // });
 
-    // $(".ObiCard").on('click', function(){
-    //     $(".ObiCard").slideUp();
-    //     $(".ObiCard2").slideDown();
+    // $(".obiCard").on('click', function(){
+    //     $(".obiCard").slideUp();
+    //     $(".obiCard2").slideDown();
     // });
 
-    // $(".StormCard").on('click', function(){
-    //     $(".StormCard").slideUp();
-    //     $(".StormCard2").slideDown();
+    // $(".stormCard").on('click', function(){
+    //     $(".stormCard").slideUp();
+    //     $(".stormCard2").slideDown();
     // });
 
-    // $(".VaderCard").on('click', function(){
-    //     $(".VaderCard").slideUp();
-    //     $(".VaderCard2").slideDown();
+    // $(".vaderCard").on('click', function(){
+    //     $(".vaderCard").slideUp();
+    //     $(".vaderCard2").slideDown();
     // });
 
 
-    // $(".LukeCard2").on('click', function(){
-    //     $(".LukeCard2").slideUp();
-    //     $(".LukeCard3").slideDown();
+    // $(".lukeCard2").on('click', function(){
+    //     $(".lukeCard2").slideUp();
+    //     $(".lukeCard3").slideDown();
     // });
 
-    // $(".ObiCard2").on('click', function(){
-    //     $(".ObiCard2").slideUp();
-    //     $(".ObiCard3").slideDown();
+    // $(".obiCard2").on('click', function(){
+    //     $(".obiCard2").slideUp();
+    //     $(".obiCard3").slideDown();
     // });
 
-    // $(".StormCard2").on('click', function(){
-    //     $(".StormCard2").slideUp();
-    //     $(".StormCard3").slideDown();
+    // $(".stormCard2").on('click', function(){
+    //     $(".stormCard2").slideUp();
+    //     $(".stormCard3").slideDown();
     // });
 
-    // $(".VaderCard2").on('click', function(){
-    //     $(".VaderCard2").slideUp();
-    //     $(".VaderCard3").slideDown();
+    // $(".vaderCard2").on('click', function(){
+    //     $(".vaderCard2").slideUp();
+    //     $(".vaderCard3").slideDown();
     // });
 
 

@@ -1,4 +1,4 @@
-/* GLOBAL SWITCH TO BOARDER-BOX, TEXT-ALIGN CENTER AND THE CLEARFIX */
+/* GLOBAL sWITCH TO BOARDER-BOX, TEXT-ALIGN CENTER AND THE CLEARFIX */
 
 * {
     box-sizing: border-box;
@@ -38,7 +38,7 @@ h1, h2{
   }
 
 
-.SWOptions {
+.sWOptions {
 border: 2px solid black;
 background-color: black;
 height: auto;
@@ -47,7 +47,7 @@ align-content: center;
 
 }
 
-.SWBattleground {
+.sWBattleground {
 border: 2px solid black;
 background-color: gray;
 height: auto;
@@ -55,7 +55,7 @@ float: left;
 align-content: center;
 }
 
-.SWDefeated {
+.sWDefeated {
     border: 2px solid black;
 background-color: red;
 height: auto;
@@ -81,10 +81,10 @@ body{
     margin-bottom: 10px; 
 }
 
-.LukeCard2, 
-.ObiCard2, 
-.StormCard2, 
-.VaderCard2 {
+.lukeCard2, 
+.obiCard2, 
+.stormCard2, 
+.vaderCard2 {
     width: 150px;
     height: 300px;
     margin: 10px;
@@ -109,28 +109,29 @@ playerZone{
 
 .card-body{
     background-color: green;
+    color: white;
 }
 
 .card-img-top{
     border: 5px solid green;
 }
 
-.LukeBanner{
+.lukeBanner{
         background-color: yellow;
         color: black;
 }
 
-.ObiBanner{
+.obiBanner{
     background-color: brown;
     color: white;
 }
 
-.VaderBanner{
+.vaderBanner{
     background-color: black;
     color: red;
 }
 
-.StormBanner{
+.stormBanner{
     background-color: white;
     color: black;
 }
