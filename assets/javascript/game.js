@@ -27,6 +27,9 @@ $(document).ready(function () {
         counterAtk: 10,
         alive: true,
     };
+//Cashing the DOM and Setting iniital variables
+
+let instructions_h2 = document.querySelector(".instructions");
 
     let isGameOver = false;
     let kills = 0;
@@ -44,51 +47,59 @@ $(document).ready(function () {
 
         $(".lukeCard").on('click', function () {
 
-            if (player === null) {
+            if (player === null && opponent === null) {
                 $(".lukeCard").slideUp();
                 $(".lukeCard2").slideDown();
                 player = luke;
-            } else {
+                instructions_h2.innerHTML = "CHOOSE YOUR OPPONENT";
+            } else if (opponent === null) {
                 $(".lukeCard").slideUp();
                 $(".lukeCardOpp").slideDown();
                 opponent = luke;
+                instructions_h2.innerHTML = "FIGHT!";
             }
 
         });
 
         $(".obiCard").on('click', function () {
-            if (player === null) {
+            if (player === null && opponent === null) {
                 $(".obiCard").slideUp();
                 $(".obiCard2").slideDown();
                 player = obi;
-            } else {
+                instructions_h2.innerHTML = "CHOOSE YOUR OPPONENT";
+            } else if (opponent === null){
                 $(".obiCard").slideUp();
                 $(".obiCardOpp").slideDown();
                 opponent = obi;
+                instructions_h2.innerHTML = "FIGHT!";
             }
         });
 
         $(".stormCard").on('click', function () {
-            if (player === null) {
+            if (player === null && opponent === null) {
                 $(".stormCard").slideUp();
                 $(".stormCard2").slideDown();
                 player = storm;
-            } else {
+                instructions_h2.innerHTML = "CHOOSE YOUR OPPONENT";
+            } else if (opponent === null){
                 $(".stormCard").slideUp();
                 $(".stormCardOpp").slideDown();
                 opponent = storm;
+                instructions_h2.innerHTML = "FIGHT!";
             }
         });
 
         $(".vaderCard").on('click', function () {
-            if (player === null) {
+            if (player === null && opponent === null) {
                 $(".vaderCard").slideUp();
                 $(".vaderCard2").slideDown();
                 player = vader;
-            } else {
+                instructions_h2.innerHTML = "CHOOSE YOUR OPPONENT";
+            } else if (opponent === null){
                 $(".vaderCard").slideUp();
                 $(".vaderCardOpp").slideDown();
                 opponent = vader;
+                instructions_h2.innerHTML = "FIGHT!";
             }
         });
     }
