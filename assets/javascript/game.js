@@ -12,16 +12,16 @@ $(document).ready(function () {
     obi = {
         name: "obi",
         hp: 120,
-        attack: 8,
-        baseAtk: 8,
+        attack: 7,
+        baseAtk: 7,
         counterAtk: 15,
         alive: true,
     };
     storm = {
         name: "storm",
         hp: 150,
-        attack: 7,
-        baseAtk: 7,
+        attack: 6,
+        baseAtk: 6,
         counterAtk: 5,
         alive: true,
     };
@@ -338,6 +338,7 @@ $(document).ready(function () {
         console.log(player, opponent);
         $(".playerText").text(player.hp);
         $(".opponentText").text(opponent.hp);
+        instructions_h2.innerHTML = "You attacked for: " + player.attack + "!  Your Opponent attack for:" + opponent.counterAtk + "!  KEEP FIGHTING!!";
     }
 
     //function to check for game end
