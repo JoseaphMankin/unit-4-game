@@ -30,7 +30,7 @@ $(document).ready(function () {
         hp: 170,
         attack: 8,
         baseAtk: 8,
-        counterAtk: 10,
+        counterAtk: 12,
         alive: true,
     };
     //Cashing the instruction pane. Can probably be cut
@@ -239,10 +239,7 @@ $(document).ready(function () {
                         winCheck();
                         break;
                 }
-
-
             }
-
         });
 
 
@@ -354,6 +351,15 @@ $(document).ready(function () {
             $(".restartBtn").on('click', function () {
                 reset();
             });
+
+            if (player.hp <= 0) {
+                isGameOver = true;
+                instructions_h2.innerHTML = "YOU LOST. PLAY AGAIN?!";
+                $(".restartBtn").toggle();
+                $(".restartBtn").on('click', function () {
+                    reset();
+                });
+            }
 
         }
 

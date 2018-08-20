@@ -10,13 +10,25 @@
     overflow: auto;
   }
 
-h1, h2{
-      color: white;
+h1{
+      color: #adcdf9;
       width: 100%;
       border-bottom: 3px solid black;
       margin: 0px;
       padding: 0px;
   }
+
+h2{
+    color: yellow;
+    width: 100%;
+    border-bottom: 3px solid black;
+    margin: 0px;
+    padding: 0px;
+}
+
+h3{
+    color: white;
+}
 
 
 .row{
@@ -39,8 +51,7 @@ h1, h2{
 
 
 .sWOptions {
-border: 2px solid black;
-background-color: black;
+border: 2px solid green;
 height: auto;
 float: left;
 align-content: center;
@@ -48,16 +59,14 @@ align-content: center;
 }
 
 .sWBattleground {
-border: 2px solid black;
-background-color: gray;
+border: 2px solid grey;
 height: auto;
-float: left;
+float: none;
 align-content: center;
 }
 
 .sWDefeated {
-    border: 2px solid black;
-background-color: red;
+border: 2px solid red;
 height: auto;
 float: left;
 align-content: center;
@@ -68,13 +77,15 @@ header{
 }
 
 body{
+    background-image: url(../images/deathstarbackground.png);
+    background-size: cover;
     background-color: black;
     margin: 0px;
 }
 
 .card{
-    width: 165px;
-    /* height: 300px; */
+    width: 140px;
+    height: 220px;
     margin: 10px;
     margin-left: 25px;
     float: left; /* flip to none on Battlefield */
@@ -82,16 +93,45 @@ body{
     padding: 0px;
 }
 
+img{
+    height: 150px;
+    width: auto;
+}
+
+.card-img-top{
+    padding: 3px;
+    height: 165px;
+}
+
+.card-title{
+    padding: 0px;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+}
+
+.card-body{
+    background-color: green;
+    color: white;
+    padding: 2px;
+    height: 40px;
+    
+}
+
 .lukeCard2, 
 .obiCard2, 
 .stormCard2, 
-.vaderCard2 {
+.vaderCard2,
+.lukeCardOpp,
+.obiCardOpp,
+.stormCardOpp,
+.vaderCardOpp
+ {
     /* width: 150px;
     height: 300px; */
     margin: 10px;
-    margin-left: 25px;
-    float: left; /* flip to none on Battlefield */
-    
+    margin-left: 100px;
+    float: none; 
 }
 
 .playerZone{
@@ -101,19 +141,6 @@ body{
 
 .card:hover{
     background-color: blue;
-}
-
-.card-title{
-    padding: 0px;
-    text-align: center;
-    width: 100%;
-}
-
-.card-body{
-    background-color: green;
-    color: white;
-    padding: 5px;
-    
 }
 
 .player-body{
@@ -140,38 +167,26 @@ body{
     color: black;
 }
 
-.card-img-overlay{
+/* .card-img-overlay{
     position: absolute;
     padding: 0px;
     top: 25%;
-}
-
-img{
-    height: 200px;
-    width: 30;
-}
-
-.card-img-top{
-    padding: 3px;
-    height: 200px;
-}
+} */
 
 .restartBtn{
-    position: absolute;
-    top: 0;
-    left: -100px;
+    margin-top: 20%;
     background-image: URL("../images/crossedsabers.jpg");
-    background-size: 600px 400px;
-    width: 600px;
-    height: 400px;
+    background-size: 400px 200px;
+    width: 400px;
+    height: 210px;
     z-index: 1000;
     border: 10px solid green;
-    font-size: 50pt;
-    color: red;
+    font-size: 40pt;
+    color: blue;
 }
 
 .restartBtn:hover{
-    color: blue;
+    color: red;
 }
 
 
