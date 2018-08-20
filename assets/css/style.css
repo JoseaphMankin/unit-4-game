@@ -156,11 +156,11 @@ img{
 .restartBtn{
     position: absolute;
     top: 0;
-    left: -200px;
+    left: -100px;
     background-image: URL("../images/crossedsabers.jpg");
-    background-size: 800px 600px;
-    width: 800px;
-    height: 600px;
+    background-size: 600px 400px;
+    width: 600px;
+    height: 400px;
     z-index: 1000;
     border: 10px solid green;
     font-size: 50pt;

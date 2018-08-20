@@ -1,9 +1,7 @@
 //Wait for whole page to load before Javascript
 $(document).ready(function () {
-
-
-    //Created objects for the 4 fighers
-    let luke = {
+    //Objects for the 4 fighters
+    luke = {
         name: "luke",
         hp: 100,
         attack: 14,
@@ -11,7 +9,7 @@ $(document).ready(function () {
         counterAtk: 20,
         alive: true,
     };
-    let obi = {
+    obi = {
         name: "obi",
         hp: 120,
         attack: 8,
@@ -19,7 +17,7 @@ $(document).ready(function () {
         counterAtk: 15,
         alive: true,
     };
-    let storm = {
+    storm = {
         name: "storm",
         hp: 150,
         attack: 7,
@@ -27,7 +25,7 @@ $(document).ready(function () {
         counterAtk: 5,
         alive: true,
     };
-    let vader = {
+    vader = {
         name: "vader",
         hp: 170,
         attack: 8,
@@ -35,15 +33,15 @@ $(document).ready(function () {
         counterAtk: 10,
         alive: true,
     };
-    //Cashing the DOM and Setting iniital variables
+    //Cashing the instruction pane. Can probably be cut
 
     const instructions_h2 = document.querySelector(".instructions");
-    const attackBtn = document.querySelector(".attackBtn");
-
+    // initial variables and hiding all the cards;
+    //Initial Setup w/ Characters to be picked on Left. 
+    //Instructions to choose fighter, opponent and then FIGHT!
 
     let isGameOver = false;
     let wins = 0;
-
     let player = null;
     let opponent = null;
 
@@ -65,10 +63,12 @@ $(document).ready(function () {
     $(".attackBtn").hide();
     $(".restartBtn").hide();
 
+    //Main loop giving Global Gamestate 
+    if (isGameOver = false) {
+        readyPlayerOne();
+    }
 
-    //Initial Setup w/ Characters to be picked on Left. 
-    //Instructions to choose fighter, opponent and then FIGHT!
-    readyPlayerOne();
+    // Function to pick your player for the game
 
     function readyPlayerOne() {
 
@@ -78,9 +78,11 @@ $(document).ready(function () {
                 $(".lukeCard").slideUp();
                 $(".lukeCard2").slideDown();
                 player = luke;
+                console.log(player);
                 $(".card-body").css("background-color", "red");
                 $(".player-body").css("background-color", "green");
                 instructions_h2.innerHTML = "CHOOSE YOUR OPPONENT";
+                $(".playerText").text(player.hp);
                 pickEnemy();
             }
         });
@@ -93,6 +95,7 @@ $(document).ready(function () {
                 $(".card-body").css("background-color", "red");
                 $(".player-body").css("background-color", "green");
                 instructions_h2.innerHTML = "CHOOSE YOUR OPPONENT";
+                $(".playerText").text(player.hp);
                 pickEnemy();
             }
         });
@@ -105,6 +108,7 @@ $(document).ready(function () {
                 $(".card-body").css("background-color", "red");
                 $(".player-body").css("background-color", "green");
                 instructions_h2.innerHTML = "CHOOSE YOUR OPPONENT";
+                $(".playerText").text(player.hp);
                 pickEnemy();
             }
         });
@@ -117,15 +121,18 @@ $(document).ready(function () {
                 $(".card-body").css("background-color", "red");
                 $(".player-body").css("background-color", "green");
                 instructions_h2.innerHTML = "CHOOSE YOUR OPPONENT";
+                $(".playerText").text(player.hp);
                 pickEnemy();
             }
         });
     }
 
+    //function to choose an Opponent
+
     function pickEnemy() {
         $(".lukeCard").on('click', function () {
 
-            if (opponent === null) {
+            if (player != null && opponent === null) {
                 $(".lukeCard").slideUp();
                 $(".lukeCardOpp").slideDown();
                 opponent = luke;
@@ -138,7 +145,7 @@ $(document).ready(function () {
         });
 
         $(".obiCard").on('click', function () {
-            if (opponent === null) {
+            if (player != null && opponent === null) {
                 $(".obiCard").slideUp();
                 $(".obiCardOpp").slideDown();
                 opponent = obi;
@@ -150,7 +157,7 @@ $(document).ready(function () {
         });
 
         $(".stormCard").on('click', function () {
-            if (opponent === null) {
+            if (player != null && opponent === null) {
                 $(".stormCard").slideUp();
                 $(".stormCardOpp").slideDown();
                 opponent = storm;
@@ -162,7 +169,7 @@ $(document).ready(function () {
         });
 
         $(".vaderCard").on('click', function () {
-            if (opponent === null) {
+            if (player != null && opponent === null) {
                 $(".vaderCard").slideUp();
                 $(".vaderCardOpp").slideDown();
                 opponent = vader;
@@ -174,15 +181,24 @@ $(document).ready(function () {
         });
         winCheck();
         battle();
-
     }
 
-    //Attack button does x-damage on both sides. then player attack increments. 
+    //function to handle the combat
 
     function battle() {
 
         $(".attackBtn").on('click', function () {
             smack();
+
+            if (player.hp <= 0) {
+                isGameOver = true;
+                instructions_h2.innerHTML = "YOU LOST. PLAY AGAIN?!";
+                $(".restartBtn").toggle();
+                $(".restartBtn").on('click', function () {
+                    reset();
+                });
+            }
+
             if (opponent.hp <= 0 && wins < 3) {
 
                 switch (opponent.name) {
@@ -194,7 +210,6 @@ $(document).ready(function () {
                         $(".attackBtn").toggle();
                         instructions_h2.innerHTML = "VICTORY. PICK ANOTHER OPPONENT!";
                         winCheck();
-                        readyPlayerOne();
                         break;
                     case "obi":
                         $(".obiCardOpp").slideUp();
@@ -204,7 +219,6 @@ $(document).ready(function () {
                         $(".attackBtn").toggle();
                         instructions_h2.innerHTML = "VICTORY. PICK ANOTHER OPPONENT!";
                         winCheck();
-                        readyPlayerOne();
                         break;
                     case "storm":
                         $(".stormCardOpp").slideUp();
@@ -214,7 +228,6 @@ $(document).ready(function () {
                         $(".attackBtn").toggle();
                         instructions_h2.innerHTML = "VICTORY. PICK ANOTHER OPPONENT!";
                         winCheck();
-                        readyPlayerOne();
                         break;
                     case "vader":
                         $(".vaderCardOpp").slideUp();
@@ -224,7 +237,6 @@ $(document).ready(function () {
                         $(".attackBtn").toggle();
                         instructions_h2.innerHTML = "VICTORY. PICK ANOTHER OPPONENT!";
                         winCheck();
-                        readyPlayerOne();
                         break;
                 }
 
@@ -234,76 +246,92 @@ $(document).ready(function () {
         });
 
 
-
     }
+
+    //function to reset the game
 
     function reset() {
+        location.reload();
+        // player = null;
+        // opponent = null;
+        // wins = 0;
+        // console.log(player, opponent, wins);
 
-        $(".restartBtn").toggle();
-        instructions_h2.innerHTML = "CHOOSE YOUR FIGHTER";
-        $(".card-body").css("background-color", "green");
+        // luke = {
+        //     name: "luke",
+        //     hp: 100,
+        //     attack: 14,
+        //     baseAtk: 14,
+        //     counterAtk: 20,
+        //     alive: true,
+        // };
+        // obi = {
+        //     name: "obi",
+        //     hp: 120,
+        //     attack: 8,
+        //     baseAtk: 8,
+        //     counterAtk: 15,
+        //     alive: true,
+        // };
+        // storm = {
+        //     name: "storm",
+        //     hp: 150,
+        //     attack: 7,
+        //     baseAtk: 7,
+        //     counterAtk: 5,
+        //     alive: true,
+        // };
+        // vader = {
+        //     name: "vader",
+        //     hp: 170,
+        //     attack: 8,
+        //     baseAtk: 8,
+        //     counterAtk: 10,
+        //     alive: true,
+        // };
 
-        player = null;
-        opponent = null;
-         luke = {
-            name: "luke",
-            hp: 100,
-            attack: 14,
-            baseAtk: 14,
-            counterAtk: 20,
-            alive: true,
-        };
-         obi = {
-            name: "obi",
-            hp: 120,
-            attack: 8,
-            baseAtk: 8,
-            counterAtk: 15,
-            alive: true,
-        };
-         storm = {
-            name: "storm",
-            hp: 150,
-            attack: 7,
-            baseAtk: 7,
-            counterAtk: 5,
-            alive: true,
-        };
-         vader = {
-            name: "vader",
-            hp: 170,
-            attack: 8,
-            baseAtk: 8,
-            counterAtk: 10,
-            alive: true,
-        };
+        // $(".restartBtn").toggle();
+        // instructions_h2.innerHTML = "CHOOSE YOUR FIGHTER";
+        // $(".card-body").css("background-color", "green");
 
-        wins = 0;
-       
-        $(".lukeCard").show();
-        $(".obiCard").show();
-        $(".stormCard").show();
-        $(".vaderCard").show();
+        // $(".lukeCard").toggle();
+        // $(".obiCard").toggle();
+        // $(".stormCard").toggle();
+        // $(".vaderCard").toggle();
 
-        $(".lukeCard2").hide();
-        $(".obiCard2").hide();
-        $(".stormCard2").hide();
-        $(".vaderCard2").hide();
+        // $(".lukeCard2").hide();
+        // $(".obiCard2").hide();
+        // $(".stormCard2").hide();
+        // $(".vaderCard2").hide();
 
-        $(".lukeCard3").hide();
-        $(".obiCard3").hide();
-        $(".stormCard3").hide();
-        $(".vaderCard3").hide();
+        // $(".lukeCard3").hide();
+        // $(".obiCard3").hide();
+        // $(".stormCard3").hide();
+        // $(".vaderCard3").hide();
 
-        $(".lukeCardOpp").hide();
-        $(".obiCardOpp").hide();
-        $(".stormCardOpp").hide();
-        $(".vaderCardOpp").hide();
+        // $(".lukeCardOpp").hide();
+        // $(".obiCardOpp").hide();
+        // $(".stormCardOpp").hide();
+        // $(".vaderCardOpp").hide();
 
-        $(".attackBtn").hide();
+        // $(".attackBtn").hide();
+
+        // $(".lukeCard").off('click', function () {
+        // });
+        // $(".obiCard").off('click', function () {
+        // });
+        // $(".stormCard").off('click', function () {
+        // });
+        // $(".vaderCard").off('click', function () {
+        // });
+
+        // console.log(luke, obi, storm, vader);
+        // isGameOver = false;
+        // readyPlayerOne();
 
     }
 
+    //Function that handles the attack buttons. 
 
     function smack() {
         console.log(opponent.hp);
@@ -315,6 +343,9 @@ $(document).ready(function () {
         $(".opponentText").text(opponent.hp);
     }
 
+    //function to check for game end
+
+
     function winCheck() {
         if (wins === 3) {
             isGameOver = true;
@@ -325,7 +356,11 @@ $(document).ready(function () {
             });
 
         }
+
     }
+
+    //the Call to get the game rolling
+    readyPlayerOne();
 
     //Continues until opponent is killed, kills increases by 1. They are moved to defeated Zone
     //Instruction to pick again
@@ -333,7 +368,6 @@ $(document).ready(function () {
     //If Player ever has 0HP - Lose Condition. isGameOver flips to true. Reset Game Button
 
     //If Player Kill count = 3 - Win Condition. is GameOver flips to true. Reset Game Button
-
 
     //FUN THINGS TO DO .show, .hide, .slideUp, .slideDown, .toggle so .slideToggle .fadeToggle mouseover
     //$('#btn1').html('my button'); for rewriting
