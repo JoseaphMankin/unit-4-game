@@ -73,28 +73,30 @@ body{
 }
 
 .card{
-    width: 150px;
-    height: 300px;
+    width: 165px;
+    /* height: 300px; */
     margin: 10px;
     margin-left: 25px;
     float: left; /* flip to none on Battlefield */
-    margin-bottom: 10px; 
+    margin-bottom: 3px; 
+    padding: 0px;
 }
 
 .lukeCard2, 
 .obiCard2, 
 .stormCard2, 
 .vaderCard2 {
-    width: 150px;
-    height: 300px;
+    /* width: 150px;
+    height: 300px; */
     margin: 10px;
     margin-left: 25px;
     float: left; /* flip to none on Battlefield */
-    margin-bottom: 10px;
+    
 }
 
-playerZone{
+.playerZone{
     float: none;
+    height: auto;
 }
 
 .card:hover{
@@ -111,7 +113,7 @@ playerZone{
     background-color: green;
     color: white;
     padding: 5px;
-    height: 50px;
+    
 }
 
 .player-body{
@@ -145,12 +147,13 @@ playerZone{
 }
 
 img{
-    height: 220px;
+    height: 200px;
     width: 30;
 }
 
 .card-img-top{
     padding: 3px;
+    height: 200px;
 }
 
 .restartBtn{
