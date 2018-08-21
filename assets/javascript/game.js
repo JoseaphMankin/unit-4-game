@@ -1,7 +1,7 @@
 //Wait for whole page to load before Javascript
 $(document).ready(function () {
     //Objects for the 4 fighters
-    luke = {
+    let luke = {
         name: "luke",
         hp: 100,
         attack: 14,
@@ -9,7 +9,7 @@ $(document).ready(function () {
         counterAtk: 20,
         alive: true,
     };
-    obi = {
+    let obi = {
         name: "obi",
         hp: 120,
         attack: 7,
@@ -17,7 +17,7 @@ $(document).ready(function () {
         counterAtk: 15,
         alive: true,
     };
-    storm = {
+    let storm = {
         name: "storm",
         hp: 150,
         attack: 6,
@@ -25,7 +25,7 @@ $(document).ready(function () {
         counterAtk: 5,
         alive: true,
     };
-    vader = {
+    let vader = {
         name: "vader",
         hp: 170,
         attack: 8,
@@ -50,10 +50,8 @@ $(document).ready(function () {
     $(".stormCard2").hide();
     $(".vaderCard2").hide();
 
-    $(".lukeCard3").hide();
-    $(".obiCard3").hide();
-    $(".stormCard3").hide();
-    $(".vaderCard3").hide();
+
+    $(".third-card").hide();
 
     $(".lukeCardOpp").hide();
     $(".obiCardOpp").hide();
@@ -130,6 +128,19 @@ $(document).ready(function () {
     //function to choose an Opponent
 
     function pickEnemy() {
+
+        // let characters = {
+        //     luke: {},
+        //     vader: {}
+        // }
+
+        // $(".player-card").on("click", function(){
+        //     if( player !== null && opponent === null ){
+        //         $(this).slideUp();
+        //         $($(this).data("opp-card")).slideDown();
+        //         let thisCharacter = characters[ $(this).data("character") ];
+        //     }
+        // })
         $(".lukeCard").on('click', function () {
 
             if (player != null && opponent === null) {
@@ -137,7 +148,6 @@ $(document).ready(function () {
                 $(".lukeCardOpp").slideDown();
                 opponent = luke;
                 $(".opponentText").text(opponent.hp);
-                console.log(opponent);
                 instructions_h2.innerHTML = "FIGHT!";
                 $(".attackBtn").toggle();
             }
@@ -145,6 +155,7 @@ $(document).ready(function () {
         });
 
         $(".obiCard").on('click', function () {
+            console.log(player, opponent)
             if (player != null && opponent === null) {
                 $(".obiCard").slideUp();
                 $(".obiCardOpp").slideDown();
@@ -248,83 +259,79 @@ $(document).ready(function () {
     //function to reset the game
 
     function reset() {
-        location.reload();
-        // player = null;
-        // opponent = null;
-        // wins = 0;
-        // console.log(player, opponent, wins);
+        // location.reload();
+        player = null;
+        opponent = null;
+        wins = 0;
+        console.log(player, opponent, wins);
 
-        // luke = {
-        //     name: "luke",
-        //     hp: 100,
-        //     attack: 14,
-        //     baseAtk: 14,
-        //     counterAtk: 20,
-        //     alive: true,
-        // };
-        // obi = {
-        //     name: "obi",
-        //     hp: 120,
-        //     attack: 8,
-        //     baseAtk: 8,
-        //     counterAtk: 15,
-        //     alive: true,
-        // };
-        // storm = {
-        //     name: "storm",
-        //     hp: 150,
-        //     attack: 7,
-        //     baseAtk: 7,
-        //     counterAtk: 5,
-        //     alive: true,
-        // };
-        // vader = {
-        //     name: "vader",
-        //     hp: 170,
-        //     attack: 8,
-        //     baseAtk: 8,
-        //     counterAtk: 10,
-        //     alive: true,
-        // };
+        luke = {
+            name: "luke",
+            hp: 100,
+            attack: 14,
+            baseAtk: 14,
+            counterAtk: 20,
+            alive: true,
+        };
+        obi = {
+            name: "obi",
+            hp: 120,
+            attack: 8,
+            baseAtk: 8,
+            counterAtk: 15,
+            alive: true,
+        };
+        storm = {
+            name: "storm",
+            hp: 150,
+            attack: 7,
+            baseAtk: 7,
+            counterAtk: 5,
+            alive: true,
+        };
+        vader = {
+            name: "vader",
+            hp: 170,
+            attack: 8,
+            baseAtk: 8,
+            counterAtk: 10,
+            alive: true,
+        };
 
-        // $(".restartBtn").toggle();
-        // instructions_h2.innerHTML = "CHOOSE YOUR FIGHTER";
-        // $(".card-body").css("background-color", "green");
+        $(".restartBtn").toggle();
+        instructions_h2.innerHTML = "CHOOSE YOUR FIGHTER";
+        $(".card-body").css("background-color", "green");
 
-        // $(".lukeCard").toggle();
-        // $(".obiCard").toggle();
-        // $(".stormCard").toggle();
-        // $(".vaderCard").toggle();
+        $(".lukeCard").toggle();
+        $(".obiCard").toggle();
+        $(".stormCard").toggle();
+        $(".vaderCard").toggle();
 
-        // $(".lukeCard2").hide();
-        // $(".obiCard2").hide();
-        // $(".stormCard2").hide();
-        // $(".vaderCard2").hide();
+        $(".lukeCard2").hide();
+        $(".obiCard2").hide();
+        $(".stormCard2").hide();
+        $(".vaderCard2").hide();
 
-        // $(".lukeCard3").hide();
-        // $(".obiCard3").hide();
-        // $(".stormCard3").hide();
-        // $(".vaderCard3").hide();
+        $(".lukeCard3").hide();
+        $(".obiCard3").hide();
+        $(".stormCard3").hide();
+        $(".vaderCard3").hide();
 
-        // $(".lukeCardOpp").hide();
-        // $(".obiCardOpp").hide();
-        // $(".stormCardOpp").hide();
-        // $(".vaderCardOpp").hide();
+        $(".lukeCardOpp").hide();
+        $(".obiCardOpp").hide();
+        $(".stormCardOpp").hide();
+        $(".vaderCardOpp").hide();
 
-        // $(".attackBtn").hide();
+        $(".attackBtn").hide();
 
-        // $(".lukeCard").off('click', function () {
-        // });
-        // $(".obiCard").off('click', function () {
-        // });
-        // $(".stormCard").off('click', function () {
-        // });
-        // $(".vaderCard").off('click', function () {
-        // });
+        $(".lukeCard").unbind('click');
+        $(".obiCard").unbind('click');
+        $(".stormCard").unbind('click');
+        $(".vaderCard").unbind('click');
 
-        // console.log(luke, obi, storm, vader);
-        // isGameOver = false;
-        // readyPlayerOne();
+        console.log(luke, obi, storm, vader);
+        isGameOver = false;
+        readyPlayerOne();
 
     }
 
@@ -338,28 +345,24 @@ $(document).ready(function () {
         console.log(player, opponent);
         $(".playerText").text(player.hp);
         $(".opponentText").text(opponent.hp);
-        instructions_h2.innerHTML = "You attacked for: " + player.attack + "!  Your Opponent attack for:" + opponent.counterAtk + "!  KEEP FIGHTING!!";
+        instructions_h2.innerHTML = "You attacked for: <span class='PA'>" + player.attack + "</span>" + "!  Your Opponent attack for:" + opponent.counterAtk + "!  KEEP FIGHTING!!";
     }
 
     //function to check for game end
-
+    $(".restartBtn").on('click', function () {
+        reset();
+    });
 
     function winCheck() {
         if (wins === 3) {
             isGameOver = true;
             instructions_h2.innerHTML = "YOU WON. PLAY AGAIN?!";
             $(".restartBtn").toggle();
-            $(".restartBtn").on('click', function () {
-                reset();
-            });
 
             if (player.hp <= 0) {
                 isGameOver = true;
                 instructions_h2.innerHTML = "YOU LOST. PLAY AGAIN?!";
                 $(".restartBtn").toggle();
-                $(".restartBtn").on('click', function () {
-                    reset();
-                });
             }
 
         }
