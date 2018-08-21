@@ -372,13 +372,6 @@ $(document).ready(function () {
     //the Call to get the game rolling
     readyPlayerOne();
 
-    //Continues until opponent is killed, kills increases by 1. They are moved to defeated Zone
-    //Instruction to pick again
-
-    //If Player ever has 0HP - Lose Condition. isGameOver flips to true. Reset Game Button
-
-    //If Player Kill count = 3 - Win Condition. is GameOver flips to true. Reset Game Button
-
     //FUN THINGS TO DO .show, .hide, .slideUp, .slideDown, .toggle so .slideToggle .fadeToggle mouseover
     //$('#btn1').html('my button'); for rewriting
 
