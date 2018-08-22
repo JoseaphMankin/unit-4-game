@@ -4,39 +4,39 @@ $(document).ready(function () {
     let luke = {
         name: "luke",
         hp: 100,
-        attack: 14,
-        baseAtk: 14,
-        counterAtk: 20,
+        attack: 12,
+        baseAtk: 12,
+        counterAtk: 22,
         alive: true,
     };
-    let obi = {
+     let obi = {
         name: "obi",
-        hp: 120,
-        attack: 7,
-        baseAtk: 7,
-        counterAtk: 15,
+        hp: 125,
+        attack: 10,
+        baseAtk: 10,
+        counterAtk: 10,
         alive: true,
     };
     let storm = {
         name: "storm",
         hp: 150,
-        attack: 6,
-        baseAtk: 6,
-        counterAtk: 5,
+        attack: 7,
+        baseAtk: 7,
+        counterAtk: 8,
         alive: true,
     };
     let vader = {
         name: "vader",
-        hp: 170,
-        attack: 8,
-        baseAtk: 8,
-        counterAtk: 12,
+        hp: 180,
+        attack: 6,
+        baseAtk: 6,
+        counterAtk: 10,
         alive: true,
     };
     //Cashing the instruction pane. Can probably be cut
-
     const instructions_h2 = document.querySelector(".instructions");
-    // initial variables and hiding all the cards;
+
+    //Initial variables and hiding all the cards;
     //Initial Setup w/ Characters to be picked on Left. 
     //Instructions to choose fighter, opponent and then FIGHT!
 
@@ -45,19 +45,9 @@ $(document).ready(function () {
     let player = null;
     let opponent = null;
 
-    $(".lukeCard2").hide();
-    $(".obiCard2").hide();
-    $(".stormCard2").hide();
-    $(".vaderCard2").hide();
-
-
+    $(".second-card").hide();
     $(".third-card").hide();
-
-    $(".lukeCardOpp").hide();
-    $(".obiCardOpp").hide();
-    $(".stormCardOpp").hide();
-    $(".vaderCardOpp").hide();
-
+    $(".oppCard").hide();
     $(".attackBtn").hide();
     $(".restartBtn").hide();
 
@@ -204,13 +194,11 @@ $(document).ready(function () {
             if (player.hp <= 0) {
                 isGameOver = true;
                 instructions_h2.innerHTML = "YOU LOST. PLAY AGAIN?!";
-                $(".restartBtn").toggle();
-                $(".restartBtn").on('click', function () {
-                    reset();
-                });
+                $(".restartBtn").show();
+                $(".attackBtn").hide();
             }
 
-            if (opponent.hp <= 0 && wins < 3) {
+            if (opponent.hp <= 0 && wins < 3 && player.hp >= 0) {
 
                 switch (opponent.name) {
                     case "luke":
@@ -268,17 +256,17 @@ $(document).ready(function () {
         luke = {
             name: "luke",
             hp: 100,
-            attack: 14,
-            baseAtk: 14,
-            counterAtk: 20,
+            attack: 12,
+            baseAtk: 12,
+            counterAtk: 22,
             alive: true,
         };
-        obi = {
+         obi = {
             name: "obi",
-            hp: 120,
-            attack: 8,
-            baseAtk: 8,
-            counterAtk: 15,
+            hp: 125,
+            attack: 10,
+            baseAtk: 10,
+            counterAtk: 10,
             alive: true,
         };
         storm = {
@@ -286,14 +274,14 @@ $(document).ready(function () {
             hp: 150,
             attack: 7,
             baseAtk: 7,
-            counterAtk: 5,
+            counterAtk: 8,
             alive: true,
         };
         vader = {
             name: "vader",
-            hp: 170,
-            attack: 8,
-            baseAtk: 8,
+            hp: 180,
+            attack: 6,
+            baseAtk: 6,
             counterAtk: 10,
             alive: true,
         };
@@ -301,28 +289,14 @@ $(document).ready(function () {
         $(".restartBtn").toggle();
         instructions_h2.innerHTML = "CHOOSE YOUR FIGHTER";
         $(".card-body").css("background-color", "green");
+        
+        $(".first-card").show();
 
-        $(".lukeCard").toggle();
-        $(".obiCard").toggle();
-        $(".stormCard").toggle();
-        $(".vaderCard").toggle();
-
-        $(".lukeCard2").hide();
-        $(".obiCard2").hide();
-        $(".stormCard2").hide();
-        $(".vaderCard2").hide();
-
-        $(".lukeCard3").hide();
-        $(".obiCard3").hide();
-        $(".stormCard3").hide();
-        $(".vaderCard3").hide();
-
-        $(".lukeCardOpp").hide();
-        $(".obiCardOpp").hide();
-        $(".stormCardOpp").hide();
-        $(".vaderCardOpp").hide();
-
+        $(".second-card").hide();
+        $(".third-card").hide();
+        $(".oppCard").hide();
         $(".attackBtn").hide();
+        $(".restartBtn").hide();
 
         $(".lukeCard").unbind('click');
         $(".obiCard").unbind('click');
@@ -341,11 +315,12 @@ $(document).ready(function () {
         console.log(opponent.hp);
         opponent.hp = opponent.hp - player.attack;
         player.hp = player.hp - opponent.counterAtk;
+        instructions_h2.innerHTML = "You attacked for: <span class='PA'>" + player.attack + "</span>" + "!  Your Opponent attack for: <span class='OA'>" + opponent.counterAtk + "</span>" + "!  KEEP FIGHTING!!";
         player.attack = player.attack + player.baseAtk;
         console.log(player, opponent);
         $(".playerText").text(player.hp);
         $(".opponentText").text(opponent.hp);
-        instructions_h2.innerHTML = "You attacked for: <span class='PA'>" + player.attack + "</span>" + "!  Your Opponent attack for:" + opponent.counterAtk + "!  KEEP FIGHTING!!";
+        
     }
 
     //function to check for game end
@@ -354,7 +329,7 @@ $(document).ready(function () {
     });
 
     function winCheck() {
-        if (wins === 3) {
+        if (wins === 3 && player.hp >= 0) {
             isGameOver = true;
             instructions_h2.innerHTML = "YOU WON. PLAY AGAIN?!";
             $(".restartBtn").toggle();
@@ -362,7 +337,8 @@ $(document).ready(function () {
             if (player.hp <= 0) {
                 isGameOver = true;
                 instructions_h2.innerHTML = "YOU LOST. PLAY AGAIN?!";
-                $(".restartBtn").toggle();
+                $(".restartBtn").show();
+                $(".attackBtn").hide();
             }
 
         }
