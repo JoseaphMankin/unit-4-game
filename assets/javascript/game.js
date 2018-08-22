@@ -6,7 +6,7 @@ $(document).ready(function () {
         hp: 100,
         attack: 12,
         baseAtk: 12,
-        counterAtk: 22,
+        counterAtk: 20,
         alive: true,
     };
      let obi = {
@@ -14,7 +14,7 @@ $(document).ready(function () {
         hp: 125,
         attack: 10,
         baseAtk: 10,
-        counterAtk: 10,
+        counterAtk: 11,
         alive: true,
     };
     let storm = {
@@ -22,7 +22,7 @@ $(document).ready(function () {
         hp: 150,
         attack: 7,
         baseAtk: 7,
-        counterAtk: 8,
+        counterAtk: 9,
         alive: true,
     };
     let vader = {
@@ -30,11 +30,12 @@ $(document).ready(function () {
         hp: 180,
         attack: 6,
         baseAtk: 6,
-        counterAtk: 10,
+        counterAtk: 11,
         alive: true,
     };
     //Cashing the instruction pane. Can probably be cut
     const instructions_h2 = document.querySelector(".instructions");
+    const restartText_span = document.querySelector(".restartText");
 
     //Initial variables and hiding all the cards;
     //Initial Setup w/ Characters to be picked on Left. 
@@ -194,6 +195,7 @@ $(document).ready(function () {
             if (player.hp <= 0) {
                 isGameOver = true;
                 instructions_h2.innerHTML = "YOU LOST. PLAY AGAIN?!";
+                restartText_span.innerHTML = "YOU LOST! ";
                 $(".restartBtn").show();
                 $(".attackBtn").hide();
             }
@@ -253,36 +255,36 @@ $(document).ready(function () {
         wins = 0;
         console.log(player, opponent, wins);
 
-        luke = {
+         luke = {
             name: "luke",
             hp: 100,
             attack: 12,
             baseAtk: 12,
-            counterAtk: 22,
+            counterAtk: 20,
             alive: true,
         };
-         obi = {
+          obi = {
             name: "obi",
             hp: 125,
             attack: 10,
             baseAtk: 10,
-            counterAtk: 10,
+            counterAtk: 11,
             alive: true,
         };
-        storm = {
+         storm = {
             name: "storm",
             hp: 150,
             attack: 7,
             baseAtk: 7,
-            counterAtk: 8,
+            counterAtk: 9,
             alive: true,
         };
-        vader = {
+         vader = {
             name: "vader",
             hp: 180,
             attack: 6,
             baseAtk: 6,
-            counterAtk: 10,
+            counterAtk: 11,
             alive: true,
         };
 
@@ -302,6 +304,7 @@ $(document).ready(function () {
         $(".obiCard").unbind('click');
         $(".stormCard").unbind('click');
         $(".vaderCard").unbind('click');
+        $(".attackBtn").unbind('click');
 
         console.log(luke, obi, storm, vader);
         isGameOver = false;
@@ -332,11 +335,13 @@ $(document).ready(function () {
         if (wins === 3 && player.hp >= 0) {
             isGameOver = true;
             instructions_h2.innerHTML = "YOU WON. PLAY AGAIN?!";
+            restartText_span.innerHTML = "YOU WON! ";
             $(".restartBtn").toggle();
 
             if (player.hp <= 0) {
                 isGameOver = true;
                 instructions_h2.innerHTML = "YOU LOST. PLAY AGAIN?!";
+                restartText_span.innerHTML = "YOU LOST! ";
                 $(".restartBtn").show();
                 $(".attackBtn").hide();
             }
