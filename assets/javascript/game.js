@@ -33,9 +33,20 @@ $(document).ready(function () {
         counterAtk: 11,
         alive: true,
     };
-    //Cashing the instruction pane. Can probably be cut
+    //Cashing the instruction pane and audio. Can probably be cut
     const instructions_h2 = document.querySelector(".instructions");
     const restartText_span = document.querySelector(".restartText");
+    const lukePick = document.getElementById('lukePick');
+    const lukeDie = document.getElementById('lukeDie');
+    const obiPick = document.getElementById('obiPick');
+    const obiDie = document.getElementById('obiDie');
+    const stormPick = document.getElementById('stormPick');
+    const stormDie = document.getElementById('stormDie');
+    const vaderPick = document.getElementById('vaderPick');
+    const vaderDie = document.getElementById('vaderDie');
+    const attackSnd = document.getElementById('attackSnd');
+    const saberOn = document.getElementById('saberOn');
+    const saberOff = document.getElementById('saberOff');
 
     //Initial variables and hiding all the cards;
     //Initial Setup w/ Characters to be picked on Left. 
@@ -67,7 +78,7 @@ $(document).ready(function () {
                 $(".lukeCard").slideUp();
                 $(".lukeCard2").slideDown();
                 player = luke;
-                console.log(player);
+                lukePick.play();
                 $(".card-body").css("background-color", "red");
                 $(".player-body").css("background-color", "green");
                 instructions_h2.innerHTML = "CHOOSE YOUR OPPONENT";
@@ -81,6 +92,7 @@ $(document).ready(function () {
                 $(".obiCard").slideUp();
                 $(".obiCard2").slideDown();
                 player = obi;
+                obiPick.play();
                 $(".card-body").css("background-color", "red");
                 $(".player-body").css("background-color", "green");
                 instructions_h2.innerHTML = "CHOOSE YOUR OPPONENT";
@@ -94,6 +106,7 @@ $(document).ready(function () {
                 $(".stormCard").slideUp();
                 $(".stormCard2").slideDown();
                 player = storm;
+                stormPick.play();
                 $(".card-body").css("background-color", "red");
                 $(".player-body").css("background-color", "green");
                 instructions_h2.innerHTML = "CHOOSE YOUR OPPONENT";
@@ -107,6 +120,7 @@ $(document).ready(function () {
                 $(".vaderCard").slideUp();
                 $(".vaderCard2").slideDown();
                 player = vader;
+                vaderPick.play();
                 $(".card-body").css("background-color", "red");
                 $(".player-body").css("background-color", "green");
                 instructions_h2.innerHTML = "CHOOSE YOUR OPPONENT";
@@ -196,6 +210,7 @@ $(document).ready(function () {
                 isGameOver = true;
                 instructions_h2.innerHTML = "YOU LOST. PLAY AGAIN?!";
                 restartText_span.innerHTML = "YOU LOST! ";
+                saberOff.play();
                 $(".restartBtn").show();
                 $(".attackBtn").hide();
             }
@@ -206,6 +221,7 @@ $(document).ready(function () {
                     case "luke":
                         $(".lukeCardOpp").slideUp();
                         $(".lukeCard3").slideDown();
+                        lukeDie.play();
                         opponent = null;
                         wins++;
                         $(".attackBtn").toggle();
@@ -215,6 +231,7 @@ $(document).ready(function () {
                     case "obi":
                         $(".obiCardOpp").slideUp();
                         $(".obiCard3").slideDown();
+                        obiDie.play();
                         opponent = null;
                         wins++;
                         $(".attackBtn").toggle();
@@ -224,6 +241,7 @@ $(document).ready(function () {
                     case "storm":
                         $(".stormCardOpp").slideUp();
                         $(".stormCard3").slideDown();
+                        stormDie.play();
                         opponent = null;
                         wins++;
                         $(".attackBtn").toggle();
@@ -233,6 +251,7 @@ $(document).ready(function () {
                     case "vader":
                         $(".vaderCardOpp").slideUp();
                         $(".vaderCard3").slideDown();
+                        vaderDie.play();
                         opponent = null;
                         wins++;
                         $(".attackBtn").toggle();
@@ -308,6 +327,7 @@ $(document).ready(function () {
 
         console.log(luke, obi, storm, vader);
         isGameOver = false;
+        saberOn.play();
         readyPlayerOne();
 
     }
@@ -315,7 +335,7 @@ $(document).ready(function () {
     //Function that handles the attack buttons. 
 
     function smack() {
-        console.log(opponent.hp);
+        attackSnd.play();
         opponent.hp = opponent.hp - player.attack;
         player.hp = player.hp - opponent.counterAtk;
         instructions_h2.innerHTML = "You attacked for: <span class='PA'>" + player.attack + "</span>" + "!  Your Opponent attack for: <span class='OA'>" + opponent.counterAtk + "</span>" + "!  KEEP FIGHTING!!";
@@ -336,12 +356,14 @@ $(document).ready(function () {
             isGameOver = true;
             instructions_h2.innerHTML = "YOU WON. PLAY AGAIN?!";
             restartText_span.innerHTML = "YOU WON! ";
+            saberOff.play();
             $(".restartBtn").toggle();
 
             if (player.hp <= 0) {
                 isGameOver = true;
                 instructions_h2.innerHTML = "YOU LOST. PLAY AGAIN?!";
                 restartText_span.innerHTML = "YOU LOST! ";
+                saberOff.play();
                 $(".restartBtn").show();
                 $(".attackBtn").hide();
             }
