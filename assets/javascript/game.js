@@ -339,18 +339,24 @@ $(document).ready(function () {
     //Function that handles the attack buttons. 
 
     function smack() {
-
+        //playing random sound out of 4 options
         let attackSound = Math.floor(Math.random()*4);
-            if (attackSound === 0){
-                blaster.play();
-            } else if (attackSound === 1){
-                clash1.play();
-            } else if (attackSound === 2){
-                swing1.play();
-            } else {
-                swing2.play();
-            };   
+        console.log(attackSound);
 
+            switch (attackSound){
+            case 0:
+                blaster.play();
+                break;
+            case 1: 
+                clash1.play();
+                break;
+            case 2:
+                swing1.play();
+                break;
+            case 3:
+                swing1.play();
+                break;
+            } 
 
         opponent.hp = opponent.hp - player.attack;
         player.hp = player.hp - opponent.counterAtk;
