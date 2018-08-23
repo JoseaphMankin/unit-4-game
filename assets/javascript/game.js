@@ -14,7 +14,7 @@ $(document).ready(function () {
         hp: 125,
         attack: 10,
         baseAtk: 10,
-        counterAtk: 11,
+        counterAtk: 10,
         alive: true,
     };
     let storm = {
@@ -44,9 +44,13 @@ $(document).ready(function () {
     const stormDie = document.getElementById('stormDie');
     const vaderPick = document.getElementById('vaderPick');
     const vaderDie = document.getElementById('vaderDie');
-    const attackSnd = document.getElementById('attackSnd');
+    const blaster = document.getElementById('blaster');
     const saberOn = document.getElementById('saberOn');
     const saberOff = document.getElementById('saberOff');
+    const clash1 = document.getElementById('clash1');
+    const swing1 = document.getElementById('swing1');
+    const swing2 = document.getElementById('swing2');
+    
 
     //Initial variables and hiding all the cards;
     //Initial Setup w/ Characters to be picked on Left. 
@@ -335,7 +339,19 @@ $(document).ready(function () {
     //Function that handles the attack buttons. 
 
     function smack() {
-        attackSnd.play();
+
+        let attackSound = Math.floor(Math.random()*4);
+            if (attackSound === 0){
+                blaster.play();
+            } else if (attackSound === 1){
+                clash1.play();
+            } else if (attackSound === 2){
+                swing1.play();
+            } else {
+                swing2.play();
+            };   
+
+
         opponent.hp = opponent.hp - player.attack;
         player.hp = player.hp - opponent.counterAtk;
         instructions_h2.innerHTML = "You attacked for: <span class='PA'>" + player.attack + "</span>" + "!  Your Opponent attack for: <span class='OA'>" + opponent.counterAtk + "</span>" + "!  KEEP FIGHTING!!";
