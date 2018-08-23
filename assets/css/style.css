@@ -177,7 +177,7 @@ img{
     margin-top: 20%;
     background-image: URL("../images/crossedsabers.jpg");
     background-size: 400px 200px;
-    width: 400px;
+    width: 100%;
     height: 210px;
     z-index: 1000;
     border: 10px solid green;

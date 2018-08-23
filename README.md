@@ -1,6 +1,8 @@
 # unit-4-game
 Week 4 Assignment - RPG Unit 4 Game - jQuery Assignment
 
+- NOTE: This game has sounds. Please check your speakers.
+
 ![Alt text](assets/images/SWRPGscreenshot.png?raw=true "SW Screenshot")
 
 
