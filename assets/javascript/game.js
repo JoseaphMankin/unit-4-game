@@ -33,7 +33,7 @@ $(document).ready(function () {
         counterAtk: 11,
         alive: true,
     };
-    //Cashing the instruction pane and audio. Can probably be cut
+    //Cashing the instruction pane and audio.
     const instructions_h2 = document.querySelector(".instructions");
     const restartText_span = document.querySelector(".restartText");
     const lukePick = document.getElementById('lukePick');
@@ -52,9 +52,9 @@ $(document).ready(function () {
     const swing2 = document.getElementById('swing2');
     
 
-    //Initial variables and hiding all the cards;
-    //Initial Setup w/ Characters to be picked on Left. 
-    //Instructions to choose fighter, opponent and then FIGHT!
+    //Hiding all the unused cards;
+    //Initial Setup Variables. 
+    //Instructions to choose fighter coming from HTML
 
     let isGameOver = false;
     let wins = 0;
@@ -72,7 +72,7 @@ $(document).ready(function () {
         readyPlayerOne();
     }
 
-    // Function to pick your player for the game
+    // Functions for on Clicks to pick your player for the game
 
     function readyPlayerOne() {
 
@@ -134,22 +134,10 @@ $(document).ready(function () {
         });
     }
 
-    //function to choose an Opponent
+    // Functions for on Clicks to pick your opponent for the game
 
     function pickEnemy() {
 
-        // let characters = {
-        //     luke: {},
-        //     vader: {}
-        // }
-
-        // $(".player-card").on("click", function(){
-        //     if( player !== null && opponent === null ){
-        //         $(this).slideUp();
-        //         $($(this).data("opp-card")).slideDown();
-        //         let thisCharacter = characters[ $(this).data("character") ];
-        //     }
-        // })
         $(".lukeCard").on('click', function () {
 
             if (player != null && opponent === null) {
@@ -164,15 +152,15 @@ $(document).ready(function () {
         });
 
         $(".obiCard").on('click', function () {
-            console.log(player, opponent)
+        
             if (player != null && opponent === null) {
                 $(".obiCard").slideUp();
                 $(".obiCardOpp").slideDown();
                 opponent = obi;
-                console.log(opponent);
                 $(".opponentText").text(opponent.hp);
-                $(".attackBtn").toggle();
                 instructions_h2.innerHTML = "FIGHT!";
+                $(".attackBtn").toggle();
+                
             }
         });
 
@@ -265,8 +253,6 @@ $(document).ready(function () {
                 }
             }
         });
-
-
     }
 
     //function to reset the game
@@ -373,6 +359,8 @@ $(document).ready(function () {
         reset();
     });
 
+    //function to check for win condition
+
     function winCheck() {
         if (wins === 3 && player.hp >= 0) {
             isGameOver = true;
@@ -394,15 +382,8 @@ $(document).ready(function () {
 
     }
 
-    //the Call to get the game rolling
+    //the Main Call to get the game rolling
     readyPlayerOne();
-
-    //FUN THINGS TO DO .show, .hide, .slideUp, .slideDown, .toggle so .slideToggle .fadeToggle mouseover
-    //$('#btn1').html('my button'); for rewriting
-
-
-
-
 
 });
 

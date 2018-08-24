@@ -16,12 +16,13 @@ h1{
       border-bottom: 3px solid black;
       margin: 0px;
       padding: 0px;
+      
   }
 
 h2{
     color: yellow;
     width: 100%;
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid #adcdf9;
     margin: 0px;
     padding: 0px;
 }
