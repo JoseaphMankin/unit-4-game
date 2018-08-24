@@ -85,11 +85,12 @@ body{
 }
 
 .card{
+    
     width: 140px;
     height: 220px;
-    margin: 10px;
+    margin: 10px auto;
     margin-left: 25px;
-    float: left; /* flip to none on Battlefield */
+    float: left;
     margin-bottom: 3px; 
     padding: 0px;
 }
@@ -128,11 +129,10 @@ img{
 .stormCardOpp,
 .vaderCardOpp
  {
-    /* width: 150px;
-    height: 300px; */
-    margin: 10px;
-    margin-left: 100px;
-    float: none; 
+    margin: 0 auto; 
+        float: none; 
+        margin-top: 5px;
+        margin-bottom: 10px; 
 }
 
 .playerZone{
